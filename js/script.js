@@ -33,8 +33,12 @@ const clickMe = document.getElementById('click-me')
 // Variabile container 
 const gridContainer = document.querySelector('.grid-container');
 
+const punteggio = document.getElementById('punteggio')
+
+
 const arr = [];
 
+let punteggioUtente = 0
 
 clickMe.addEventListener('click',
     function(){
@@ -63,24 +67,37 @@ while (arr.length < 16) {
     newCell.classList.add('cell');
         //aggiunto il valore al div
     newCell.append(number);
+
+
         // aggiunta la classe active al div cliccatto
     newCell.addEventListener('click', function () {
-        this.classList.toggle('active');
+        this.classList.add('active');
         
         console.log( 'Cella numero',this.innerHTML);
 
-        console.log(newCell.value)
 
-        // if(newCell.value == arr.length){
-        //     alert('sbagliato')
-        // }
+        console.log('numeor', number, arr)
+        // console.log(newCell.value)
 
+        punteggioUtente++
         
 
+        console.log('punteggio', punteggioUtente)
+
+let i;
+        for(i = 0; i < 16; i++ ){
+            console.log(arr[i],typeof arr[i],number,typeof number )
+            if(number == arr[i]){
+                alert('hai preso una bomba')
+                gridContainer.innerHTML = '';
+
+            }
+        }
     });
 
         //aggiunto il div al container
     gridContainer.append(newCell);
+
 
 }
 
