@@ -80,8 +80,8 @@ while (arr.length < 16) {
         // console.log(newCell.value)
 
         punteggioUtente++
-        
 
+        punteggio.innerText= punteggioUtente
         console.log('punteggio', punteggioUtente)
 
 let i;
@@ -90,14 +90,16 @@ let i;
             if(number == arr[i]){
                 alert('hai preso una bomba')
                 gridContainer.innerHTML = '';
+                punteggioUtente = 0
+                newCell.style.backgroundcolor = 'red';
 
             }
+            // else()
         }
     });
 
         //aggiunto il div al container
     gridContainer.append(newCell);
-
 
 }
 
